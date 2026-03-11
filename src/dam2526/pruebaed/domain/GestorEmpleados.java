@@ -1,5 +1,7 @@
 package dam2526.pruebaed.domain;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import dam2526.pruebaed.utils.IEntradaSalida;
@@ -94,6 +96,7 @@ public class GestorEmpleados {
   }
 
   private void listarEmpleados(List<Empleado> empleados) {
+    ordenarPorNombre(empleados);
 
     for (int indice = 0; indice < empleados.size(); indice++) {
       Empleado empleado = empleados.get(indice);
@@ -103,5 +106,9 @@ public class GestorEmpleados {
 
     consola.pausa();
     consola.limpiarPantalla();
+  }
+
+  private void ordenarPorNombre(List<Empleado> empleados) {
+    Collections.sort(empleados, Comparator.comparing(Empleado::getNombre));
   }
 }
