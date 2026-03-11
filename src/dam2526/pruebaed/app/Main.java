@@ -1,10 +1,16 @@
 package dam2526.pruebaed.app;
 
-public class Main {
-  public void show() {
-  }
+import dam2526.pruebaed.domain.GestorEmpleados;
+import dam2526.pruebaed.domain.Plantilla;
+import dam2526.pruebaed.utils.Consola;
+import dam2526.pruebaed.utils.IEntradaSalida;
 
+public class Main {
   public static void main(String[] args) {
-    new Main().show();
+    IEntradaSalida consola = new Consola();
+    Plantilla plantilla = new Plantilla();
+    GestorEmpleados gestorEmpleados = new GestorEmpleados(plantilla, consola);
+
+    gestorEmpleados.ejecutar();
   }
 }
