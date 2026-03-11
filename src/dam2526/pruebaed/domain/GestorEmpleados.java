@@ -14,6 +14,7 @@ public class GestorEmpleados {
   }
 
   public void ejecutar() {
+    consola.limpiarPantalla();
     boolean continuar = true;
 
     while (continuar) {
@@ -46,6 +47,7 @@ public class GestorEmpleados {
   }
 
   private void contratarEmpleado() {
+    consola.limpiarPantalla();
     consola.imprimirLinea("1 - Tecnico");
     consola.imprimirLinea("2 - Comercial");
     int opcion;
@@ -54,6 +56,7 @@ public class GestorEmpleados {
       opcion = consola.leerEntero("> ");
     } while (opcion < 1 || opcion > 2);
 
+    consola.limpiarPantalla();
     String nombre = consola.leerTexto("Nombre: ");
     String apellidos = consola.leerTexto("Apellidos: ");
     String dni = consola.leerTexto("DNI: ");
@@ -74,24 +77,31 @@ public class GestorEmpleados {
     };
 
     plantilla.agregarEmpleado(empleado);
+    consola.limpiarPantalla();
   }
 
   private void listarTodos() {
+    consola.limpiarPantalla();
     List<Empleado> empleados = plantilla.getEmpleadosPorNombre("");
     listarEmpleados(empleados);
   }
 
   private void listarPorFiltro() {
+    consola.limpiarPantalla();
     String filtro = consola.leerTexto("Filtro: ");
     List<Empleado> empleados = plantilla.getEmpleadosPorNombre(filtro);
     listarEmpleados(empleados);
   }
 
   private void listarEmpleados(List<Empleado> empleados) {
+
     for (int indice = 0; indice < empleados.size(); indice++) {
       Empleado empleado = empleados.get(indice);
       consola.imprimirLinea(String.format("%d - %s %s: %f €", indice + 1, empleado.getNombre(), empleado.getApellidos(),
           empleado.getSueldo()));
     }
+
+    consola.pausa();
+    consola.limpiarPantalla();
   }
 }
