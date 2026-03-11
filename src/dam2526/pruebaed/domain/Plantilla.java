@@ -18,7 +18,8 @@ public class Plantilla {
     List<Empleado> empleadosFiltrados = new ArrayList<>();
 
     for (Empleado empleado : empleados) {
-      if (empleado.getNombre().contains(filtroNombre) || empleado.getApellidos().contains(filtroNombre)) {
+      if (empleado.getNombre().toLowerCase().contains(filtroNombre.toLowerCase())
+          || empleado.getApellidos().toLowerCase().contains(filtroNombre.toLowerCase())) {
         empleadosFiltrados.add(empleado);
       }
     }
